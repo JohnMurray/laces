@@ -1,4 +1,4 @@
-##### Gem Graph 
+# Gem Graph 
 This is just a fun project to search for the most influential gem in the 
 Ruby-verse. My approach is to analyze the gem-index and find the gems that
 are listed as dependencies in the largest amount of gems. 
