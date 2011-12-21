@@ -12,3 +12,22 @@ In short, we can use the following URLS to get the information that we need
   * `http://rubygems.org/quick/Marshal.4.8/[gem-name]-[gem-version].gemspec.rz`
 
 Both of these will yield files that can be marshalled into Ruby
+
+
+
+
+##### Computing the Index
+
+Below contains the pseudo-code for building the dependency graph from the
+index (primary indexes only):
+
+    nodes = new Array
+    gem_list = download-gem-index(remote_server)
+    gem_list.each do |gem|
+      nodes << new Node(gem.name)
+    end
+    gem_list.each do |gem|
+      gem.dependencies.each do |dependency|
+        nodes[dependency].references << nodes[gem.name]
+      end
+    end
