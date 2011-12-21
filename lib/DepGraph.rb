@@ -1,6 +1,6 @@
 require 'uri'
 require 'net/http'
-require 'open'
+require 'open-uri'
 
 
 ##----
@@ -16,30 +16,45 @@ require 'open'
 ##----
 module INFLUENTIAL
 
+  ## Only look for gems on this platform
+  PLATFORM = "ruby"
+  MARSHAL_VERSION = "#{Marshal::MAJOR_VERSION}.#{Marshal::MINOR_VERSION}"
+
+
   ##----
   ## Helps obtain all of the necessary indexes and builds a simple graph of
   ## gems; containing only the primary links and all gathered meta-data.
   ##----
   class Graph
   
-    def initialize()
-      @index_uri = URI.parse "http://production.s3.rubygems.org/latest_specs.4.8.gz"
+    attr_accessor :index, :nodes
+
+    def initialize
+      @index_uri = URI.parse "http://production.s3.rubygems.org/latest_specs.%.gz" %
+                     MARSHAL_VERSION
       @dep_uri_template = "http://rubygems.org/quick/Marshal.4.8/%s-%s.gemspec.rz"
       collect_index
     end
 
 
-    def build()
-
+    def build
+      @nodes = NodeCollection.new
+      index.each do |gem|
+        @nodes << (Node.new :name => gem.first)
+      end
+      index.each do |gem|
+        reqs = collect_requirements(gem.first, gem[1].version)
+      end
     end
   
   
     private
-    def collect_index()
+    def collect_index
       index_gz = open @index_uri
-      index_bin = Gem.gunzip index_gz.body
+      index_bin = Gem.gunzip index_gz.read
       begin
-        @index = Marshal.load index_bin 
+        @index = Marshal.load index_bin
+        @index.reject! {|i| i.last != PLATFORM }
       rescue => e
         puts "Unable to marshal full index"
         puts "Error: #{e.message}"
@@ -50,10 +65,37 @@ module INFLUENTIAL
     def collect_requirements(gem_name, gem_version)
       req_uri = URI.parse(@dep_uri_template % [gem_name, gem_version])
       req_gz = open req_uri
-      req_bin = Gem.inflate req_gz
+      req_bin = Gem.inflate req_gz.read
       reqs = Marshal.load req_bin
     end
   
+  end
+
+
+  ##----
+  ## A simple collection for holding nodes. I wanted something that would
+  ## offer me a cleaner implementation in the Graph class.
+  ##----
+  class NodeCollection
+    
+    def initialize
+      @collection = {}
+    end
+
+    def << node
+      @collection[node.name.to_sym] = node
+    end
+
+    def [] node_name
+      @collection[node_name.to_sym]
+    end
+
+    def count
+      @collection.count
+    end
+
+    alias :length :count
+    alias :size   :count
   end
   
   
@@ -63,7 +105,8 @@ module INFLUENTIAL
   ##----
   class Node
     
-    attr_accessor :name, :dependencies, :references, :weight, :gem_spec, :requirements
+    attr_accessor :name, :dependencies, :references, 
+                  :weight, :gem_spec, :requirements
 
     def initialize(opts = {})
       options = {
