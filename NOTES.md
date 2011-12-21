@@ -29,5 +29,6 @@ index (primary indexes only):
     gem_list.each do |gem|
       gem.dependencies.each do |dependency|
         nodes[dependency].references << nodes[gem.name]
+        nodes[gem.name].dependencies << nodes[dependency]
       end
     end
