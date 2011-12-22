@@ -1,6 +1,7 @@
 require 'uri'
 require 'net/http'
 require 'open-uri'
+require 'enumerator'
 
 
 ##----
@@ -77,7 +78,9 @@ module INFLUENTIAL
   ## offer me a cleaner implementation in the Graph class.
   ##----
   class NodeCollection
-    
+   
+    include Enumerable
+
     def initialize
       @collection = {}
     end
@@ -92,6 +95,10 @@ module INFLUENTIAL
 
     def count
       @collection.count
+    end
+
+    def each
+      @collection.each {|k,v| yield v }
     end
 
     alias :length :count
