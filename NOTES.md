@@ -1,4 +1,4 @@
-##### Fetching the Index
+# Fetching the Index
 
 For a good resource on how the index works (or what it looks like) visit:
 http://robots.thoughtbot.com/post/2729333530/fetching-source-index-for-http-rubygems-org
@@ -16,7 +16,7 @@ Both of these will yield files that can be marshalled into Ruby
 
 
 
-##### Computing the Index
+# Computing the Index
 
 Below contains the pseudo-code for building the dependency graph from the
 index (primary indexes only):
