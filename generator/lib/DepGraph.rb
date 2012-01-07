@@ -31,8 +31,8 @@ module INFLUENTIAL
     attr_accessor :index, :nodes
 
     def initialize
-      @index_uri = URI.parse "http://production.s3.rubygems.org/latest_specs.%.gz" %
-                     MARSHAL_VERSION
+      @index_uri = URI.parse(
+        "http://production.s3.rubygems.org/latest_specs.#{MARSHAL_VERSION}.gz")
       @dep_uri_template = "http://rubygems.org/quick/Marshal.4.8/%s-%s.gemspec.rz"
       collect_index
     end
@@ -45,6 +45,10 @@ module INFLUENTIAL
       end
       index.each do |gem|
         reqs = collect_requirements(gem.first, gem[1].version)
+        reqs.dependencies.each do |dep|
+          @nodes[gem.first].dependencies << @nodes[dep.name]
+          @nodes[dep.name].references    << @nodes[gem.first]
+        end
       end
     end
   
@@ -118,8 +122,8 @@ module INFLUENTIAL
     def initialize(opts = {})
       options = {
         :name         => nil,
-        :dependencies => [],
-        :references   => [],
+        :dependencies => [],  #this nodes dependencies
+        :references   => [],  #which gems list me (this gem) as a dependency
         :weight       => 0,
         :gem_spec     => nil,
         :requirements => []
