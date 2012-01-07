@@ -1,11 +1,14 @@
 require 'uri'
 require 'net/http'
 require 'open-uri'
-require 'enumerator'
+
+$: << File.dirname(__FILE__)
+require 'Node'
+require 'NodeCollection'
 
 
 ##----
-## Build a dependency graph based on the index from RubyGems.org
+## Class neccessary to build a Dependency Graph of the gems at RubyGems.org.
 ## 
 ## Algorithm Notes:
 ##   The algorithm only analyzes the current gem versions. This is to keep
@@ -74,66 +77,6 @@ module INFLUENTIAL
       reqs = Marshal.load req_bin
     end
   
-  end
-
-
-  ##----
-  ## A simple collection for holding nodes. I wanted something that would
-  ## offer me a cleaner implementation in the Graph class.
-  ##----
-  class NodeCollection
-   
-    include Enumerable
-
-    def initialize
-      @collection = {}
-    end
-
-    def << node
-      @collection[node.name.to_sym] = node
-    end
-
-    def [] node_name
-      @collection[node_name.to_sym]
-    end
-
-    def count
-      @collection.count
-    end
-
-    def each
-      @collection.each {|k,v| yield v }
-    end
-
-    alias :length :count
-    alias :size   :count
-  end
-  
-  
-  ##----
-  ## Node to be used in the graph. This contains all the links to other nodes
-  ## and also holds meta-data for each node (gem).
-  ##----
-  class Node
-    
-    attr_accessor :name, :dependencies, :references, 
-                  :weight, :gem_spec, :requirements
-
-    def initialize(opts = {})
-      options = {
-        :name         => nil,
-        :dependencies => [],  #this nodes dependencies
-        :references   => [],  #which gems list me (this gem) as a dependency
-        :weight       => 0,
-        :gem_spec     => nil,
-        :requirements => []
-      }.merge opts
-      begin
-        options.each {|k,v| send("#{k}=", v)}
-      rescue NoMethodError => e
-      end
-    end
-
   end
 
 end
