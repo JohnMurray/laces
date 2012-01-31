@@ -6,6 +6,8 @@ there are several directions that the research could take and many avenues
 that could be explored in terms of what this research will mean and what
 information I would like to be able to derrive from the data.
 
+[ ![Build status - Travis-ci][1] ][2]
+
 ## Generator
 The Generator represents the code that will be used to build the dependency
 graph as well as the code that will computer over the graph to attain various
@@ -18,3 +20,7 @@ result sets.
 + CLI runner via rake tasks
 + Add additional meta-data to node objects when parsing
 + Implement primary-link algorithm
+
+
+  [1]: https://secure.travis-ci.org/johnmurray/gem-graph.png
+  [2]: https://travis-ci.org/johnmurray/gem-graph
