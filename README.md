@@ -22,5 +22,5 @@ result sets.
 + ~~Implement primary-link algorithm~~
 
 
-  [1]: https://secure.travis-ci.org/johnmurray/gem-graph.png
-  [2]: https://travis-ci.org/johnmurray/gem-graph
+  [1]: https://secure.travis-ci.org/JohnMurray/gem-graph.png
+  [2]: https://travis-ci.org/JohnMurray/gem-graph
