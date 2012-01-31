@@ -80,8 +80,8 @@ module INFLUENTIAL
 
     def add_dependencies(gem_name, gem_requirements)
       gem_requirements.dependencies.each do |dep|
-        @nodes[gem_name].dependencies << @nodes[dep.name]
-        @nodes[dep.name].references   << @nodes[gem_name]
+        @nodes[gem_name].dependencies << @nodes[dep.name] if @nodes[dep.name]
+        @nodes[dep.name].references   << @nodes[gem_name] if @nodes[dep.name]
       end
     end
   
