@@ -61,3 +61,23 @@ show us one-level deeper in the tree where the tree might look like:
           |--bson
        |--rake
        |--etc...
+
+I'm not actually sure this will yield any interesting results but, I'm still
+interested to find out. 
+
+---
+
+# STD Lib Analysis
+
+I'd like to do a static-analysis of each gem to see what libraries and classes
+from the STD Lib are being used. I think it would be interesting to compare
+some STD Lib packages to some popular gems out there. 
+This could lead to some interesting findings suggesting that some libraries
+should come out of std lib and some gems should be included (or at least
+focused upon for performance). 
+
+This is going to be much harder than what I am currently doing as I will need
+to obtain the source for each gem and run it through some type of parser to get
+the AST at which point I would walk through it and determine what is being used.
+I'll also need to identify all of the classes/modules that come from the STD
+Lib some way or another. 
