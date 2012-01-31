@@ -19,7 +19,7 @@ result sets.
 + Option to cache dependency-graph and use that
 + CLI runner via rake tasks
 + Add additional meta-data to node objects when parsing
-+ Implement primary-link algorithm
++ ~~Implement primary-link algorithm~~
 
 
   [1]: https://secure.travis-ci.org/johnmurray/gem-graph.png
