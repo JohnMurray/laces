@@ -67,17 +67,17 @@ interested to find out.
 
 ---
 
-# STD Lib Analysis
+# Std Lib Analysis
 
 I'd like to do a static-analysis of each gem to see what libraries and classes
-from the STD Lib are being used. I think it would be interesting to compare
-some STD Lib packages to some popular gems out there. 
+from the Std Lib are being used. I think it would be interesting to compare
+some Std Lib packages to some popular gems out there. 
 This could lead to some interesting findings suggesting that some libraries
-should come out of std lib and some gems should be included (or at least
+should come out of Std Lib and some gems should be included (or at least
 focused upon for performance). 
 
 This is going to be much harder than what I am currently doing as I will need
 to obtain the source for each gem and run it through some type of parser to get
 the AST at which point I would walk through it and determine what is being used.
-I'll also need to identify all of the classes/modules that come from the STD
+I'll also need to identify all of the classes/modules that come from the Std
 Lib some way or another. 
