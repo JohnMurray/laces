@@ -17,7 +17,7 @@ result sets.
 ## Whishlist
 
 + Option to cache dependency-graph and use that
-+ CLI runner via rake tasks
++ ~~CLI runner via rake tasks~~
 + Add additional meta-data to node objects when parsing
 + ~~Implement primary-link algorithm~~
 
