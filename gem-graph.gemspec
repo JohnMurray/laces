@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'rake', '~> 0.9.2.0'
   
   s.add_development_dependency 'pry'
+  s.add_development_dependency 'rspec', '~> 2.8.0'
   
   s.files         = `git ls-files`.split("\n") - ['.gitignore', '.rspec', '.travis.yml']
   s.test_files    = `git ls-files -- spec/*`.split("\n")
