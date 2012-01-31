@@ -3,8 +3,8 @@ require 'net/http'
 require 'open-uri'
 
 $: << File.dirname(__FILE__)
-require 'Node'
-require 'NodeCollection'
+require 'node'
+require 'node_collection'
 
 
 ##----
@@ -37,21 +37,14 @@ module INFLUENTIAL
       @index_uri = URI.parse(
         "http://production.s3.rubygems.org/latest_specs.#{MARSHAL_VERSION}.gz")
       @dep_uri_template = "http://rubygems.org/quick/Marshal.4.8/%s-%s.gemspec.rz"
-      collect_index
     end
 
 
     def build
-      @nodes = NodeCollection.new
-      index.each do |gem|
-        @nodes << (Node.new :name => gem.first)
-      end
-      index.each do |gem|
+      collect_index
+      @index.each do |gem|
         reqs = collect_requirements(gem.first, gem[1].version)
-        reqs.dependencies.each do |dep|
-          @nodes[gem.first].dependencies << @nodes[dep.name]
-          @nodes[dep.name].references    << @nodes[gem.first]
-        end
+        add_dependencies(gem.first, reqs)
       end
     end
   
@@ -68,6 +61,14 @@ module INFLUENTIAL
         puts "Error: #{e.message}"
         exit 1
       end
+      init_nodes
+    end
+
+    def init_nodes
+      @nodes = NodeCollection.new
+      @index.each do |gem|
+        @nodes << (Node.new :name => gem.first)
+      end
     end
 
     def collect_requirements(gem_name, gem_version)
@@ -75,6 +76,13 @@ module INFLUENTIAL
       req_gz = open req_uri
       req_bin = Gem.inflate req_gz.read
       reqs = Marshal.load req_bin
+    end
+
+    def add_dependencies(gem_name, gem_requirements)
+      gem_requirements.dependencies.each do |dep|
+        @nodes[gem_name].dependencies << @nodes[dep.name]
+        @nodes[dep.name].references   << @nodes[gem_name]
+      end
     end
   
   end
