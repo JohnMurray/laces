@@ -32,3 +32,52 @@ index (primary indexes only):
         nodes[gem.name].dependencies << nodes[dependency]
       end
     end
+
+---
+
+# Computing the Primary-Link Weights
+
+This is really already done for us. Primary-links indicate direct dependency
+relationships. This is already represented by the basic index. We only need
+to count the references to get each node's weight. 
+
+---
+
+# Computing the Secondary-Link Weights
+
+Secondary links indicate references of references. In this case, it might show
+lower-level gems that are used as a base in many projects. For example,
+`Mongoid` might be a popular gem and could be found as a dependency in a lot of
+projects. However, if we are looking at secondary dependencies, then we might
+notice that `bson` or `bson_ext` are even more common. Essentially, this will
+show us one-level deeper in the tree where the tree might look like:
+
+    |--rails
+       |--mongoid
+          |--bson
+          |--bson_ext
+       |--awesome-sauce-gem
+          |--event-machine
+          |--bson
+       |--rake
+       |--etc...
+
+I'm not actually sure this will yield any interesting results but, I'm still
+interested to find out. 
+
+---
+
+# Std Lib Analysis
+
+I'd like to do a static-analysis of each gem to see what libraries and classes
+from the Std Lib are being used. I think it would be interesting to compare
+some Std Lib packages to some popular gems out there. 
+This could lead to some interesting findings suggesting that some libraries
+should come out of Std Lib and some gems should be included (or at least
+focused upon for performance). 
+
+This is going to be much harder than what I am currently doing as I will need
+to obtain the source for each gem and run it through some type of parser to get
+the AST at which point I would walk through it and determine what is being used.
+I'll also need to identify all of the classes/modules that come from the Std
+Lib some way or another. 
