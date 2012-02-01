@@ -21,8 +21,17 @@ describe INFLUENTIAL::Graph do
   end
 
   it "should create node collection from index" do
-    Graph.publicize_methods do
-      @graph.nodes.count.should == @graph.index.count
+    @graph.nodes.count.should == @graph.index.count
+  end
+
+  it "should populate each node with some basic information" do
+    random_index = @graph.index.sort_by { rand }
+    3.times do |i|
+      g = random_index[i]
+      gem_name = g.first
+      gem_version = g[1].version
+      @graph.nodes[gem_name].should_not == nil
+      @graph.nodes[gem_name].gem_spec.should_not == nil
     end
   end
 

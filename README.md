@@ -16,6 +16,7 @@ information I would like to be able to derrive from the data.
 + Add additional meta-data to node objects when parsing
 + Implement primary-link algorithm (weighting)
 + Implement secondary-link algorithm (weighting)
++ Come up with a more flexible configuration model
 
 
   [1]: https://secure.travis-ci.org/JohnMurray/gem-graph.png

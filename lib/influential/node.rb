@@ -9,7 +9,7 @@ module INFLUENTIAL
   class Node
     
     attr_accessor :name, :dependencies, :references, 
-                  :weight, :gem_spec, :requirements
+                  :weight, :gem_spec
 
     def initialize(opts = {})
       options = {
@@ -17,12 +17,12 @@ module INFLUENTIAL
         :dependencies => [],  #this nodes dependencies
         :references   => [],  #which gems list me (this gem) as a dependency
         :weight       => 0,
-        :gem_spec     => nil,
-        :requirements => []
+        :gem_spec     => nil
       }.merge opts
       begin
         options.each {|k,v| send("#{k}=", v)}
       rescue NoMethodError => e
+        raise "Unsupported Node option: #{k}"
       end
     end
 

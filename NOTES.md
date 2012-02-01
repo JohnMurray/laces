@@ -81,3 +81,23 @@ to obtain the source for each gem and run it through some type of parser to get
 the AST at which point I would walk through it and determine what is being used.
 I'll also need to identify all of the classes/modules that come from the Std
 Lib some way or another. 
+
+
+---
+
+# CLI Usage
+
+The program will be callable from the command line via a gem-binary using rake
+in the following formats
+
+    influential build:cache              # just cache the dependency graph
+    influential build:alg:primary        # process primary link alg
+    influential build:alg:secondary      # process secondary link alg
+    influential build:alg:std_lib        # process std_lib alg
+
+Note that the algorithms will be dynamically loaded into the project such that
+the algorithms will be pluggable. 
+
+
+
+

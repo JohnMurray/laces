@@ -67,7 +67,10 @@ module INFLUENTIAL
     def init_nodes
       @nodes = NodeCollection.new
       @index.each do |gem|
-        @nodes << (Node.new :name => gem.first)
+        @nodes << Node.new({ 
+          :name       => gem.first,
+          :gem_spec   => gem
+        })
       end
     end
 
