@@ -1,5 +1,5 @@
 $:.push File.expand_path("../lib", __FILE__)
-require 'gem-graph/version'
+require 'influential/version'
 
 Gem::Specification.new do |s|
   s.name        = 'gem-graph'

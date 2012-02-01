@@ -1,4 +1,4 @@
-# Gem Graph 
+# Influential
 
 This project represents the ongoing work for a research project that I am
 working on to find the most influential Gem in the Ruby-verse. Right now
@@ -7,11 +7,6 @@ that could be explored in terms of what this research will mean and what
 information I would like to be able to derrive from the data.
 
 [ ![Build status - Travis-ci][1] ][2]
-
-## Generator
-The Generator represents the code that will be used to build the dependency
-graph as well as the code that will computer over the graph to attain various
-result sets.
 
 
 ## Whishlist

@@ -1,7 +1,7 @@
 require 'rspec'
 
 $: << ::File.expand_path('../../lib', __FILE__)
-require 'gem-graph/graph'
+require 'influential/graph'
 
 
 class Class

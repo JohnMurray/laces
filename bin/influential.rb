@@ -14,5 +14,5 @@ end
 
 task :default => ['build:clean']
 
-Rake.application.init('gem-graph')
+Rake.application.init('influential')
 Rake.application.top_level
