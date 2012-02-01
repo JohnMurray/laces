@@ -14,7 +14,8 @@ information I would like to be able to derrive from the data.
 + Option to cache dependency-graph and use that
 + ~~CLI runner via rake tasks~~
 + Add additional meta-data to node objects when parsing
-+ ~~Implement primary-link algorithm~~
++ Implement primary-link algorithm (weighting)
++ Implement secondary-link algorithm (weighting)
 
 
   [1]: https://secure.travis-ci.org/JohnMurray/gem-graph.png
