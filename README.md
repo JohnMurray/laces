@@ -27,7 +27,7 @@ For more explanation about each goal, see `docs/GOALS_ROADMAP.md`
 
 + Option to cache dependency-graph and use that
 + ~~CLI runner via rake tasks~~
-+ Add additional meta-data to node objects when parsing
++ ~~Add additional meta-data to node objects when parsing~~
 + Implement primary-link algorithm (weighting)
 + Implement secondary-link algorithm (weighting)
 + Come up with a more flexible configuration model
