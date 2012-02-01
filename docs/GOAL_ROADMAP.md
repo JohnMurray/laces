@@ -1,5 +1,5 @@
 # Goals Roadmap
-
+A detaile version of what you will find in the README
 
 
 ## Be Package-able in Gem Form
