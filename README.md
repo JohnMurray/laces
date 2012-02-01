@@ -24,6 +24,8 @@ command line
 collected.
 + Provide semi-live results via continuous processing. 
 
+For more explanation about each goal, see `docs/GOALS_ROADMAP.md`
+
 
 ## Whishlist
 
