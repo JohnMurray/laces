@@ -18,10 +18,6 @@ follows:
 + Be package-able in Gem form
 + Offer a platform for gem dependency-analysis and visualization
 + Function as a useful analytics tool
-+ Be able to start up the project (in a useful way) in one command from 
-command line
-+ Specify a configuration file to alter how data is perceived and/or
-collected.
 + Provide semi-live results via continuous processing. 
 
 For more explanation about each goal, see `docs/GOALS_ROADMAP.md`
