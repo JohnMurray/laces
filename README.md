@@ -4,9 +4,25 @@ This project represents the ongoing work for a research project that I am
 working on to find the most influential Gem in the Ruby-verse. Right now
 there are several directions that the research could take and many avenues
 that could be explored in terms of what this research will mean and what
-information I would like to be able to derrive from the data.
+information I would like to be able to derive from the data.
 
 [ ![Build status - Travis-ci][1] ][2]
+
+
+## Goals
+
+To help stay on track in the development process, I've identified some
+goals that I'd like this project to achieve and maintain. They are as
+follows:
+
++ Be package-able in Gem form
++ Offer a platform for gem dependency-analysis and visualization
++ Function as a useful analytics tool
++ Be able to start up the project (in a useful way) in one command from 
+command line
++ Specify a configuration file to alter how data is perceived and/or
+collected.
++ Provide semi-live results via continuous processing. 
 
 
 ## Whishlist
