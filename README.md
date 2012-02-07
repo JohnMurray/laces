@@ -23,6 +23,17 @@ follows:
 For more explanation about each goal, see `docs/GOALS_ROADMAP.md`
 
 
+## Contributing
+To contribute, just fork the project and submit your additions via a pull-
+request. Make sure to checkout the **wishlist** to see what is on the
+agenda.
+
+Extra resources:
+
++ PM Software: https://trello.com/b/mjmQlvNF
++ Main GitHub Repo: https://github.com/JohnMurray/influential
+
+
 ## Whishlist
 
 + Option to cache dependency-graph and use that
