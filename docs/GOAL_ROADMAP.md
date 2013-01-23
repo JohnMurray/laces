@@ -2,18 +2,21 @@
 A detaile version of what you will find in the README
 
 
-## Be Package-able in Gem Form
+## ~~Be Package-able in Gem Form~~
 
-### Why?
-Being package-able in gem form is important to getting your work out there
+### ~~Why?~~
+~~Being package-able in gem form is important to getting your work out there
 for people to enjoy. I believe this is an important step to lowering the
-barrier to entry.
+barrier to entry.~~
 
-### Work Needed
-Not much actual coding work is needed to make this happen. Everything for
+### ~~Work Needed~~
+~~Not much actual coding work is needed to make this happen. Everything for
 gem packaging is already in place. However, this needs to be kept in mind
 at every stage of the development process. Design decisions can (and
-probably should) be impacted by this goal.
+probably should) be impacted by this goal.~~
+
+This all really isn't true if we're going to expose a web interface (and most
+likely setup a public site) so I'm crossing this one off the list.
 
 
 
