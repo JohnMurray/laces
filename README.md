@@ -15,10 +15,10 @@ To help stay on track in the development process, I've identified some
 goals that I'd like this project to achieve and maintain. They are as
 follows:
 
-+ Be package-able in Gem form
++ ~~Be package-able in Gem form~~
 + Offer a platform for gem dependency-analysis and visualization
 + Function as a useful analytics tool
-+ Provide semi-live results via continuous processing. 
++ Provide semi-live results via continuous processing via a web-interface
 
 For more explanation about each goal, see `docs/GOALS_ROADMAP.md`
 
@@ -26,7 +26,7 @@ For more explanation about each goal, see `docs/GOALS_ROADMAP.md`
 ## Contributing
 To contribute, just fork the project and submit your additions via a pull-
 request. Make sure to checkout the **wishlist** to see what is on the
-agenda.
+agenda or checkout the [Trello][3].
 
 Extra resources:
 
@@ -42,7 +42,9 @@ Extra resources:
 + Implement primary-link algorithm (weighting)
 + Implement secondary-link algorithm (weighting)
 + Come up with a more flexible configuration model
++ Pry console for debugging/interacting with graph model and algorithms
 
 
   [1]: https://secure.travis-ci.org/JohnMurray/gem-graph.png
   [2]: https://travis-ci.org/JohnMurray/gem-graph
+  [3]: https://trello.com/b/mjmQlvNF
