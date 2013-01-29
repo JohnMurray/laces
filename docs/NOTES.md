@@ -80,7 +80,10 @@ This is going to be much harder than what I am currently doing as I will need
 to obtain the source for each gem and run it through some type of parser to get
 the AST at which point I would walk through it and determine what is being used.
 I'll also need to identify all of the classes/modules that come from the Std
-Lib some way or another. 
+Lib some way or another.
+
+Suffice to say, the utility gained may not be worth the hours taken to develop
+this particular functionality.
 
 
 ---
