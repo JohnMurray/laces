@@ -1,6 +1,8 @@
 # Influential
 
-This project represents the ongoing work for a research project that I am
+[![Dependency Status](https://gemnasium.com/JohnMurray/influential.png)](https://gemnasium.com/JohnMurray/influential)
+
+ThisPublic projec the ongoing work for a research project that I am
 working on to find the most influential Gem in the Ruby-verse. Right now
 there are several directions that the research could take and many avenues
 that could be explored in terms of what this research will mean and what
