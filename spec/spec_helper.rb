@@ -1,7 +1,7 @@
 require 'rspec'
 
-$: << ::File.expand_path('../../lib', __FILE__)
-require 'influential/graph'
+$: << ::File.expand_path('../../src', __FILE__)
+require 'laces/raph'
 
 
 class Class

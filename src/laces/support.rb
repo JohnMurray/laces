@@ -1,6 +1,6 @@
 
 
-module INFLUENTIAL
+module LACES
 
   class Settings
     def initialize

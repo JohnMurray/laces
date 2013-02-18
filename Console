@@ -16,8 +16,8 @@
 require 'bundler/setup'
 Bundler.require(:development)
 
-$: << ::File.expand_path('../lib', __FILE__)
-require 'influential'
+$: << ::File.expand_path('../src', __FILE__)
+require 'laces'
 
 
 # reload the current application

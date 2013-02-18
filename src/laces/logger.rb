@@ -1,7 +1,7 @@
 require 'yaml'
 
 
-class INFLUENTIAL::Logger
+class LACES::Logger
   
   attr_reader :log
 

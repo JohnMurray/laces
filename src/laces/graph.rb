@@ -2,9 +2,8 @@ require 'uri'
 require 'net/http'
 require 'open-uri'
 
-$: << File.dirname(__FILE__)
-require 'node'
-require 'node_collection'
+require_relative 'node'
+require_relative 'node_collection'
 
 
 ##----
@@ -18,7 +17,7 @@ require 'node_collection'
 ## 
 ## 
 ##----
-module INFLUENTIAL
+module LACES
 
   ## Only look for gems on this platform
   PLATFORM = "ruby"

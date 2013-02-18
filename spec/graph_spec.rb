@@ -1,8 +1,8 @@
 require ::File.expand_path('../spec_helper.rb', __FILE__)
 
-describe INFLUENTIAL::Graph do
+describe LACES::Graph do
 
-  include INFLUENTIAL
+  include LACES
 
   before(:all) do
     Graph.publicize_methods do

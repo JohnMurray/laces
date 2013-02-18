@@ -1,7 +1,7 @@
 require 'enumerator'
 
 
-module INFLUENTIAL
+module LACES
 
   ##----
   ## A simple collection for holding nodes. I wanted something that would
