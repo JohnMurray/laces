@@ -1,0 +1,48 @@
+#!/usr/bin/env ruby
+
+
+## 
+## Console
+##   
+##   The console is an interactive shell (using Pry) that allows you to play
+##   with the Node Graph, expirement and what not. You can load the node-graph
+##   from cache or refresh the cache to look at new data. You can run various
+##   algorithms and analyze the results. Basically, it's just a more
+##   custom-tailored interactive session for this project. Be sure to check
+##   out some of the utility methods that have been defined below that will
+##   help you get the most out of this console.
+##
+
+require 'bundler/setup'
+Bundler.require(:development)
+
+$: << ::File.expand_path('../lib', __FILE__)
+require 'influential'
+
+
+# reload the current application
+def reload
+  msg = '# Reloading the console...'
+  puts CodeRay.scan(msg, :ruby).term
+  Pry.save_history
+  exec("./#{__FILE__}")
+end
+
+
+
+
+
+
+
+
+# start the console sessions!
+system('clear')
+welcome = <<eos
+# This is an interactive playground. You can play with the node graph as well
+# as a bunch of other cool stuff. For a full idea of what you can do with this
+# console, I would really just recommend that you crack open this file and
+# see what features it offers you... At least until I get some real 
+# documentation in here.
+eos
+puts CodeRay.scan(welcome, :ruby).term
+Pry.start
