@@ -1,2 +1,6 @@
 *.swp
 pkg/*.gem
+*.sublime-project
+*.sublime-workspace
+.bundle/
+bin/
