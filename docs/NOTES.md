@@ -93,10 +93,10 @@ this particular functionality.
 The program will be callable from the command line via a gem-binary using rake
 in the following formats
 
-    influential build:cache              # just cache the dependency graph
-    influential build:alg:primary        # process primary link alg
-    influential build:alg:secondary      # process secondary link alg
-    influential build:alg:std_lib        # process std_lib alg
+    laces build:cache              # just cache the dependency graph
+    laces build:alg:primary        # process primary link alg
+    laces build:alg:secondary      # process secondary link alg
+    laces build:alg:std_lib        # process std_lib alg
 
 Note that the algorithms will be dynamically loaded into the project such that
 the algorithms will be pluggable. 

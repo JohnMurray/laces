@@ -2,8 +2,6 @@ require ::File.expand_path('../spec_helper.rb', __FILE__)
 
 describe LACES::Graph do
 
-  include LACES
-
   before(:all) do
     Graph.publicize_methods do
       @graph = Graph.new

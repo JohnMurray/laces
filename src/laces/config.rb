@@ -20,5 +20,5 @@ module LACES
                File.dirname(__FILE__),
                '..'))
   set :src_dir,  File.join(settings.root_dir, 'src')
-  set :algs_dir, File.join(settings.lib_dir, 'algs')
+  set :algs_dir, File.join(settings.src_dir, 'algs')
 end

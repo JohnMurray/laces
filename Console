@@ -16,8 +16,7 @@
 require 'bundler/setup'
 Bundler.require(:development)
 
-$: << ::File.expand_path('../src', __FILE__)
-require 'laces'
+require_relative 'src/laces'
 
 
 # reload the current application
