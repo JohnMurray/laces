@@ -6,6 +6,7 @@ describe LACES::Graph do
     Graph.publicize_methods do
       @graph = Graph.new
       @graph.collect_index
+      @graph.init_nodes
     end
   end
 
@@ -38,9 +39,9 @@ describe LACES::Graph do
       random_index = @graph.index.sort_by { rand }
       3.times do |i|
         g = random_index[i]
-        reqs = @graph.collect_requirements(g.first, g[1].version)
-        reqs.should_not == nil
-        reqs.dependencies.should_not == nil
+        gem_meta = @graph.collect_gem_meta(g.first, g[1].version)
+        gem_meta.should_not == nil
+        gem_meta.dependencies.should_not == nil
       end
     end
   end
@@ -50,10 +51,10 @@ describe LACES::Graph do
       random_index = @graph.index.sort_by { rand }
       3.times do |i|
         g = random_index[i]
-        reqs = @graph.collect_requirements(g.first, g[1].version)
-        @graph.add_dependencies(g.first, reqs)
+        gem_meta = @graph.collect_gem_meta(g.first, g[1].version)
+        @graph.add_dependencies(g.first, gem_meta)
 
-        reqs.dependencies.each do |dep|
+        gem_meta.dependencies.each do |dep|
           @graph.nodes[g.first].dependencies.should include(@graph.nodes[dep.name])
           @graph.nodes[dep.name].references.should include(@graph.nodes[g.first])
         end
