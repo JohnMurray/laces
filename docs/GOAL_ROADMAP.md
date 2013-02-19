@@ -1,23 +1,5 @@
 # Goals Roadmap
-A detaile version of what you will find in the README
-
-
-## ~~Be Package-able in Gem Form~~
-
-### ~~Why?~~
-~~Being package-able in gem form is important to getting your work out there
-for people to enjoy. I believe this is an important step to lowering the
-barrier to entry.~~
-
-### ~~Work Needed~~
-~~Not much actual coding work is needed to make this happen. Everything for
-gem packaging is already in place. However, this needs to be kept in mind
-at every stage of the development process. Design decisions can (and
-probably should) be impacted by this goal.~~
-
-This all really isn't true if we're going to expose a web interface (and most
-likely setup a public site) so I'm crossing this one off the list.
-
+A detailed version of what you will find in the README
 
 
 ## Offer a Platform for Gem Dependency-Analysis and Visualization
@@ -33,16 +15,21 @@ where development effort should be placed.
 Quite a bit is needed to make this a reality. I think a good model for
 this is the FnordMetric project. They create a real-time analytics platform
 that is highly configurable via ruby-blocks but still provide enough API
-calls to make it downright simple.
+calls to make it downright simple. Of course, this won't be a gem simply
+because I think it may be a little to complex for that type of packaging. Or,
+at least I don't think it would be well suited for a gem (maybe I'm wrong).
 
-Need extensible, flexible configuration model. The current model really
-isn't extensible beyond the code written in the gem itself.
+Needs to be extensible, flexible configuration model. The current model really
+isn't extensible at the moment. Making it extensible makes it more of a useful
+tool than just a neat toy. So some nice tuneable aspects to it (if it's
+determined that it would be useful).
 
-Need extensible algorithm model. Currently algorithms are stored within the
-gem when they should be defined via some API with ruby-blocks or something
-similar.
+Need extensible algorithm model. Some way to plug in new algorithms that can
+then take advantage of the existing dependency graph and visualizations.
 
-Need a way to start the project programatically. 
+The end-goal is to set this project up as a tool to be used by the ruby
+community and researchers. So, I need to think about how this data will
+live on a server and how the data will be cached/persisted and updated.
 
 
 
