@@ -21,4 +21,9 @@ module Laces
                '..'))
   set :src_dir,  File.join(settings.root_dir, 'src')
   set :algs_dir, File.join(settings.src_dir, 'algs')
+
+  ##
+  ## Application settings
+  ##
+  set :backend_cache_store, :Marshal
 end

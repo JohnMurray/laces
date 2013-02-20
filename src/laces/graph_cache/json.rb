@@ -1,6 +1,6 @@
 module Laces
-    module GraphCache
-        class JSON
-        end
+  module GraphCache
+    class JSON
     end
+  end
 end

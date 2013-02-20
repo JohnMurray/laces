@@ -1,6 +1,6 @@
 module Laces
-    module GraphCache
-        class MySQL
-        end
+  module GraphCache
+    class MySQL
     end
+  end
 end

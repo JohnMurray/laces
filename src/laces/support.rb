@@ -1,5 +1,3 @@
-
-
 module Laces
 
   class Settings
