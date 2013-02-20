@@ -1,7 +1,7 @@
 require 'enumerator'
 
 
-module LACES
+module Laces
 
   ##----
   ## A simple collection for holding nodes. I wanted something that would

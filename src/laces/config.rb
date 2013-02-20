@@ -4,7 +4,7 @@
 ## Contains configuration for the portion of the project responsible
 ## for collecting and processing the dependency information.
 ##----
-module LACES
+module Laces
   
   ##
   ##  Program Meta-Data

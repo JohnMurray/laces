@@ -24,5 +24,5 @@ end
 
 
 RSpec.configure do |c|
-    include LACES
+    include Laces
 end

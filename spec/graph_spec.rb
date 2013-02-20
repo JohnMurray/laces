@@ -1,6 +1,6 @@
 require ::File.expand_path('../spec_helper.rb', __FILE__)
 
-describe LACES::Graph do
+describe Laces::Graph do
 
   before(:all) do
     Graph.publicize_methods do

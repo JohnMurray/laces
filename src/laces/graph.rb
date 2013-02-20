@@ -17,7 +17,7 @@ require_relative 'node_collection'
 ## 
 ## 
 ##----
-module LACES
+module Laces
 
   ## Only look for gems on this platform
   PLATFORM = "ruby"
@@ -35,6 +35,7 @@ module LACES
   class Graph
   
     attr_reader :index, :nodes
+
 
     # Public: Build up the graph by collecting the index and building a node
     # graph from the results. While some of these tasks
@@ -71,6 +72,7 @@ module LACES
       end
     end
 
+
     # Private: Initialize the node collection with nodes from the index. Do not
     # however, create the actual links between the nodes. That will come later
     # as we must first have all of the nodes in the colleciton to do that.
@@ -86,6 +88,7 @@ module LACES
       end
     end
 
+
     # Private: Analyze the dpenedencies of the nodes and link them together,
     # thus creating the "graph" vs a loose colleciton of nodes. Each edge
     # in the graph represents a directional dependency relationship.
@@ -95,6 +98,7 @@ module LACES
         add_dependencies(gem.first, gem_meta)
       end
     end
+
 
     # Private: Download the gem's metadata from rubygems.org and unpack/parse
     # it.
@@ -110,6 +114,7 @@ module LACES
       reqs_bin = Gem.inflate reqs_gz.read
       Marshal.load( reqs_bin )
     end
+
 
     # Private: Given the gem name and the gem's meta-data, we can now start
     # linking nodes together with directional-dependency links. For each

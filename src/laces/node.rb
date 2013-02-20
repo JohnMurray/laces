@@ -1,6 +1,6 @@
 
 
-module LACES
+module Laces
 
   ##----
   ## Node to be used in the graph. This contains all the links to other nodes

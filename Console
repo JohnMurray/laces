@@ -17,6 +17,7 @@ require 'bundler/setup'
 Bundler.require(:development)
 
 require_relative 'src/laces'
+include Laces
 
 
 # reload the current application

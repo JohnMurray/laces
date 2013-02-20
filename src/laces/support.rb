@@ -1,6 +1,6 @@
 
 
-module LACES
+module Laces
 
   class Settings
     def initialize
