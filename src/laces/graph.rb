@@ -4,6 +4,7 @@ require 'open-uri'
 
 require_relative 'node'
 require_relative 'node_collection'
+require_relative 'graph_cache'
 
 
 ##----
