@@ -4,3 +4,4 @@ pkg/*.gem
 *.sublime-workspace
 .bundle/
 bin/
+.DS_Store

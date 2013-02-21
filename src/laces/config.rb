@@ -26,4 +26,5 @@ module Laces
   ## Application settings
   ##
   set :backend_cache_store, :Marshal
+  set :cache_directory, File.expand_path('../../../cache', __FILE__)
 end

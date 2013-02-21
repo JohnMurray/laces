@@ -14,15 +14,27 @@ module Laces
       cache.get
     end
 
-    def self.store_cache
-      # dynamically get all classes in the GraphCache namespace
-      # initialize correct-class cache based on settings
-      # store the cache
+    # Public: Given some object, store the object via the loaded cache-store
+    #
+    # Returns nothing
+    def self.store(obj)
+      cache = load_cache_class
+      cache.store(obj)
+    end
+
+    # Public: Run any setup tasks that are required for the configured cache
+    # class
+    #
+    # Returns nothing
+    def self.init
+      cache = load_cache_class
+      cache.init
     end
 
     private
 
-    # Public: 
+    # Private: Load the cache-class that is defined within this module and
+    # is set within the configs
     def self.load_cache_class
       cache_class = Laces::settings.backend_cache_store
 
@@ -30,7 +42,7 @@ module Laces
         raise "ERROR::Invalid backend cache store defined #{cache_class}"
       end
       
-      cache = GraphCache.const_get(cache_class)
+      @cache ||= GraphCache.const_get(cache_class)
     end
   end
 end
