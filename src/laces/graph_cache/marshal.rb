@@ -24,7 +24,7 @@ module Laces
           Dir.mkdir cache_directory
         else
           if !File.directory? cache_directory
-            raise "ERROR::Cannot create cache directory #{{cache_directory}}"
+            raise "ERROR::Cannot create cache directory #{cache_directory}"
           end
         end
       end
