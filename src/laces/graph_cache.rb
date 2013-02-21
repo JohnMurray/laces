@@ -10,7 +10,7 @@ module Laces
     #
     # Returns a NodeCollection from the cache or nil.
     def self.get_cache
-      cache = load_cache_class
+      cache = load_cache
       cache.get
     end
 
@@ -18,7 +18,7 @@ module Laces
     #
     # Returns nothing
     def self.store(obj)
-      cache = load_cache_class
+      cache = load_cache
       cache.store(obj)
     end
 
@@ -27,7 +27,7 @@ module Laces
     #
     # Returns nothing
     def self.init
-      cache = load_cache_class
+      cache = load_cache
       cache.init
     end
 
@@ -35,14 +35,14 @@ module Laces
 
     # Private: Load the cache-class that is defined within this module and
     # is set within the configs
-    def self.load_cache_class
+    def self.load_cache
       cache_class = Laces::settings.backend_cache_store
 
       unless GraphCache.constants.include? cache_class
         raise "ERROR::Invalid backend cache store defined #{cache_class}"
       end
       
-      @cache ||= GraphCache.const_get(cache_class)
+      @cache ||= GraphCache.const_get(cache_class).new
     end
   end
 end
